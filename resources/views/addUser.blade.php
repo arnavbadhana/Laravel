@@ -8,9 +8,6 @@ Add New User
 {{-- Body Content --}}
 @section('body')
 <div class="container">
-    @if (session('message'))
-      <div class="alert alert-success position-absolute shadow-md w-100">{{session('message')}}</div>
-    @endif
     <div class="row">
         <div class="col">
             <form action="{{ route('user.store') }}" class="shadow-lg p-3" method="POST" enctype="multipart/form-data">
@@ -79,4 +76,32 @@ Add New User
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+@if(Session::has('message'))
+<script>
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-top-left",
+    "preventDuplicates": true,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+  }
+
+  toastr["success"]("{{session('message')}}")
+
+</script>
+@endif
 @endsection

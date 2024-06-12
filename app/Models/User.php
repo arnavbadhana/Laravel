@@ -8,5 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
-    public $guarded = [];
+    protected $guarded = [];
+
+    protected $hidden = [
+        'password'
+    ];
+
+    protected function casts(): array{
+        return [
+            'password' => 'hashed'
+        ];
+    }
 }

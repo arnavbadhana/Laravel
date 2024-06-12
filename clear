@@ -1,0 +1,17 @@
+[33mcommit 5534b4ba4e3f4f721a6093731ea060a464f1f113[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: arnav-badhana <arnavbadhana@gmail.com>
+Date:   Wed Jun 12 14:49:05 2024 +0530
+
+    Made the form working i.e. Saving data in Database with Server-Side Form Validation
+
+[33mcommit 49fd341dc68f51ebc4c928ec041a76456bea5847[m
+Author: arnav-badhana <arnavbadhana@gmail.com>
+Date:   Tue Jun 11 22:38:14 2024 +0530
+
+    Created the UI of Add User Form.
+
+[33mcommit 3754fe0683667af1d4fdb7cc50625588a9d33406[m
+Author: arnav-badhana <arnavbadhana@gmail.com>
+Date:   Tue Jun 11 20:38:50 2024 +0530
+
+    First Commit

@@ -11,8 +11,9 @@ class UserController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {   
+        $users = User::get();
+        return view('view-data', compact('users'));
     }
 
     /**
@@ -51,7 +52,7 @@ class UserController extends Controller
             ]);
 
             if($user){
-                return redirect()->route('user.create')->with('message','User added Successfully');
+                return redirect()->route('user.index')->with('message','User added Successfully');
             }else{
                 abort(403);
             }

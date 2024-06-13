@@ -8,8 +8,5 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('index');
-});
-
+Route::get('/', [UserController::class, 'index']);
 Route::resource('user', UserController::class);

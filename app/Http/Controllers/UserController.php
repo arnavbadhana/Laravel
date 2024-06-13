@@ -33,22 +33,31 @@ class UserController extends Controller
             'email' => 'required|email',
             'password' => 'required|confirmed',
             'address' => 'required',
+            'image' => 'required|mimes:jpg,jpeg,png'
             // 'tc' => 'required|in:1'
         ]);
 
-        $user = User::create([
-            'full_name' => $request->fullName,
-            'email' => $request->email,
-            'password' => $request->password,
-            'address' => $request->address
-        ]);
+        //Uploading Image
+        $file = $request->file('image');
+        $path = $file->store('uploads', 'public');
 
-        if($user){
-            return redirect()->route('user.create')->with('message','User added Successfully');
+        if($path){
+            $user = User::create([
+                'full_name' => $request->fullName,
+                'email' => $request->email,
+                'password' => $request->password,
+                'address' => $request->address,
+                'image' => $path,
+            ]);
+
+            if($user){
+                return redirect()->route('user.create')->with('message','User added Successfully');
+            }else{
+                abort(403);
+            }
         }else{
             abort(403);
         }
-
     }
 
     /**

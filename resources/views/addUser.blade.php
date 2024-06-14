@@ -10,6 +10,7 @@ Add New User
 <div class="container">
     <div class="row">
         <div class="col">
+          <a href="{{ route('user.index') }}" class="btn btn-success mb-2">All Users</a>
             <form action="{{ route('user.store') }}" class="shadow-lg p-3" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-2">

@@ -52,7 +52,7 @@ class UserController extends Controller
             ]);
 
             if($user){
-                return redirect()->route('user.index')->with('message','User added Successfully');
+                return redirect()->route('user.index')->with('successMsg','User added Successfully');
             }else{
                 abort(403);
             }
@@ -90,6 +90,15 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //User::truncate();
+        $user = User::find($id);
+        $path = public_path('storage/' . $user->image);
+        unlink($path);
+        $result = User::destroy($id);
+
+        if($result){
+            return redirect()->route('user.index')->with('deleteMsg','User Deleted');
+        }else{
+            abort(403);
+        }
     }
 }

@@ -41,5 +41,6 @@
     @elseif (Session::has('deleteMsg'))
         <script> toastr["error"]("{{session('deleteMsg')}}") </script>
     @endif 
+    @yield('script')
 </body>
 </html>
